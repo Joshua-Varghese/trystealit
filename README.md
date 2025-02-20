@@ -1,2 +1,2 @@
 # trystealit
-An Open Source Cryptographic Password Manager webapp
+An Open Source Cryptographic Password Manager. Well, What about Microsoft Autheticator? It ain't open source is it? So here is my project to like keep me up for like another two months....
