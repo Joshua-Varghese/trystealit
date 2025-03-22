@@ -291,14 +291,3 @@ function showInfo() {
     displayCredentials();
 }
 
-#alertMessage {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1050;
-    display: none;
-    width: 90%;
-    max-width: 400px;
-    left: 50%;
-    transform: translateX(-50%);
-} 
