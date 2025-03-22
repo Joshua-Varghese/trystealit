@@ -14,7 +14,9 @@
     <div id="alertMessage" class="alert alert-danger position-fixed" style="top: 20px; right: 20px; display: none; z-index: 1050;"></div>
     <div class="header">
         <h2>Dashboard</h2>
-        <div class="username" id="usernameDisplay"></div>
+        <div class="username" id="usernameDisplay">
+            <img src="assets/images/profile.png" alt="User Icon" class="mr-2" style="width: 20px; height: 20px;">
+        </div>
         <button class="signout-button"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
     </div>
     <div class="credentials-container">
@@ -80,8 +82,11 @@
             </div>
         </div>
     </div>
-    <div class="credentials-list mt-3" id="credentialsList" style="display: none;">
-        <h6>Stored Credentials</h6>
+    <div class="credentials-list mt-3" id="credentialsList" style="display: none; text-align: center;">
+        <h6>
+            <img src="assets/images/profile.png" alt="Icon" class="mr-2" style="width: 20px; height: 20px;">
+            Stored Credentials
+        </h6>
         <input type="text" id="searchInput" class="form-control mb-2" placeholder="Search..." onkeyup="searchCredentials()">
         <ul id="credentialsUl"></ul>
     </div>
@@ -90,6 +95,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body text-center">
+                        <img src="assets/images/shield.png" alt="Icon" class="mb-2" style="width: 40px; height: 40px;">
                         <h5 class="card-title">Security Info</h5>
                         <p class="card-text">Keep your verification methods and security info up to date.</p>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#addCredentialsModal">Add Credential</button>
@@ -100,6 +106,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body text-center">
+                        <img src="assets/images/password.png" alt="Icon" class="mb-2" style="width: 40px; height: 40px;">
                         <h5 class="card-title">Password</h5>
                         <p class="card-text">Make your password stronger, or change it if someone else knows it.</p>
                         <button class="btn btn-primary" onclick="checkPasswordStrength()">Change Password</button>
@@ -109,6 +116,7 @@
             <div class="col-md-6 mt-4">
                 <div class="card">
                     <div class="card-body text-center">
+                        <img src="assets/images/organization.png" alt="Icon" class="mb-2" style="width: 40px; height: 40px;">
                         <h5 class="card-title">Organizations</h5>
                         <p class="card-text">See all the organizations that you're a part of.</p>
                         <button class="btn btn-primary" onclick="manageOrganizations()">Manage Organizations</button>
@@ -118,6 +126,7 @@
             <div class="col-md-6 mt-4">
                 <div class="card">
                     <div class="card-body text-center">
+                        <img src="assets/images/privacy.png" alt="Icon" class="mb-2" style="width: 40px; height: 40px;">
                         <h5 class="card-title">Privacy</h5>
                         <p class="card-text">See how your organization and services are handling your data.</p>
                         <button class="btn btn-primary" onclick="reviewPrivacy()">Review Privacy</button>
