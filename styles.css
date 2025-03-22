@@ -1,0 +1,139 @@
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.username {
+    font-weight: bold;
+}
+
+.signout-button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signout-button:hover {
+    background-color: #c82333;
+}
+
+.credentials-container {
+    margin: 20px;
+    text-align: center;
+}
+
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header, .modal-footer {
+    border: none;
+}
+
+.credentials-form {
+    display: none;
+    margin-top: 10px;
+}
+
+.credentials-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.credentials-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.credentials-form button:hover {
+    background-color: #218838;
+}
+
+.credentials-list {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.credentials-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.credentials-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.credentials-list li:hover {
+    background-color: #e9ecef;
+}
+
+.credentials-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.credentials-buttons button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.credentials-buttons .view-button {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.credentials-buttons .view-button:hover {
+    background-color: #138496;
+}
+
+.credentials-buttons .delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.credentials-buttons .delete-button:hover {
+    background-color: #c82333;
+} 

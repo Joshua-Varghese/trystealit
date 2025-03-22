@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .register-container { max-width: 300px; margin: 100px auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        .register-container input { width: 100%; padding: 10px; margin: 5px 0; }
+        .register-container button { width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <input type="text" id="regUsername" placeholder="Username" required>
+            <input type="password" id="regPassword" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+            localStorage.setItem('registeredUsername', username);
+            localStorage.setItem('registeredPassword', password);
+            alert('Registration successful! Please log in.');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html> 
