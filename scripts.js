@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updateButton.onclick = function(event) {
                 event.stopPropagation();
                 currentCredentialIndex = index;
-                $('#updatePasswordModal').modal('show');
+                $('#updateCredentialsModal').modal('show');
             };
 
             buttonContainer.appendChild(deleteButton);
@@ -266,28 +266,64 @@ async function reviewPrivacy() {
     resultsContainer.innerHTML = resultsHTML;
 }
 
+function showInfo() {
+    const credentials = JSON.parse(localStorage.getItem('credentials')) || [];
+    const credentialsUl = document.getElementById('credentialsUl');
+    credentialsUl.innerHTML = '';
+    credentials.forEach((cred, index) => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item';
+
+        const header = document.createElement('div');
+        header.className = 'd-flex justify-content-between align-items-center';
+        header.style.cursor = 'pointer';
+
+        const organizationSpan = document.createElement('span');
+        organizationSpan.textContent = cred.organization;
+        organizationSpan.setAttribute('data-toggle', 'collapse');
+        organizationSpan.setAttribute('data-target', `#collapse${index}`);
+
+        header.appendChild(organizationSpan);
+
+        const collapseDiv = document.createElement('div');
+        collapseDiv.className = 'collapse';
+        collapseDiv.id = `collapse${index}`;
+
+        const details = document.createElement('div');
+        details.className = 'mt-2 text-center';
+        details.innerHTML = `<strong>Username:</strong> ${cred.username}<br><strong>Password:</strong> ${cred.password}<br><strong>Created on:</strong> ${cred.date}`;
+
+        collapseDiv.appendChild(details);
+
+        li.appendChild(header);
+        li.appendChild(collapseDiv);
+        credentialsUl.appendChild(li);
+    });
+    document.getElementById('credentialsList').style.display = 'block';
+}
+
 function triggerUpdatePassword(index) {
     currentCredentialIndex = index;
-    $('#updatePasswordModal').modal('show');
+    $('#updateCredentialsModal').modal('show');
+
+    const credentials = JSON.parse(localStorage.getItem('credentials')) || [];
+    document.getElementById('updateUsername').value = credentials[index].username;
+    document.getElementById('updatePassword').value = credentials[index].password;
 }
 
-document.getElementById('saveUpdatedPasswordButton').addEventListener('click', function() {
-    const updatedPassword = document.getElementById('updatedPassword').value.trim();
-    if (updatedPassword && currentCredentialIndex !== null) {
+document.getElementById('saveUpdatedCredentialsButton').addEventListener('click', function() {
+    const newUsername = document.getElementById('updateUsername').value.trim();
+    const newPassword = document.getElementById('updatePassword').value.trim();
+    if (newUsername && newPassword && currentCredentialIndex !== null) {
         const credentials = JSON.parse(localStorage.getItem('credentials')) || [];
-        credentials[currentCredentialIndex].password = updatedPassword;
+        credentials[currentCredentialIndex].username = newUsername;
+        credentials[currentCredentialIndex].password = newPassword;
         localStorage.setItem('credentials', JSON.stringify(credentials));
-        $('#updatePasswordModal').modal('hide');
-        showAlert('Password updated successfully!', 'success');
-        displayCredentials();
+        $('#updateCredentialsModal').modal('hide');
+        showAlert('Credentials updated successfully!', 'success');
+        showInfo();
     } else {
-        showAlert('Please enter a new password.', 'danger');
+        showAlert('Please fill in all fields.', 'danger');
     }
 });
-
-function showInfo() {
-    const credentialsList = document.getElementById('credentialsList');
-    credentialsList.style.display = 'block';
-    displayCredentials();
-}
 
