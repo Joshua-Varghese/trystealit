@@ -136,4 +136,8 @@ body {
 
 .credentials-buttons .delete-button:hover {
     background-color: #c82333;
+}
+
+#alertMessage {
+    z-index: 1051;
 } 

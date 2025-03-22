@@ -283,4 +283,10 @@ document.getElementById('saveUpdatedPasswordButton').addEventListener('click', f
     } else {
         showAlert('Please enter a new password.', 'danger');
     }
-}); 
+});
+
+function showInfo() {
+    const credentialsList = document.getElementById('credentialsList');
+    credentialsList.style.display = 'block';
+    displayCredentials();
+} 
